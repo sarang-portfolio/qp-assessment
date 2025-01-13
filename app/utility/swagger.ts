@@ -16,6 +16,10 @@ const swaggerDefinition = {
       url: 'http://localhost:3000',
       description: 'Development server',
     },
+    {
+      url: 'https://qp-assessment-goql.onrender.com',
+      description: 'Production server',
+    },
   ],
   components: {
     securitySchemes: {
@@ -40,7 +44,7 @@ const swaggerSpec = swaggerJsdoc(options);
 
 export const setupSwagger = (app: Express) => {
   app.use(
-    process.env.SWAGGER_DOCS_DEV_PATH as string,
+    process.env.SWAGGER_DOCS_ROUTE as string,
     swaggerUi.serve,
     swaggerUi.setup(swaggerSpec),
   );

@@ -6,7 +6,7 @@
     "build": "tsc --project tsconfig.json",
     "format": "prettier --write .",
     "start": "tsc --project tsconfig.json && node ./build/index",
-    "start:prod": "cp .env.prod .env && tsc --project tsconfig.json && tsnd --respawn --env-file=.env index.ts",
+    "start:prod": "cp .env.prod .env && tsc --project tsconfig.json && tsnd --respawn index.ts",
     "prepare": "husky"
   },
   "keywords": [],
