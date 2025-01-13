@@ -74,7 +74,7 @@ JWT_EXPIRES_IN=
 #PROD_SERVER_CONFIG
 PROD_HOST_URL=
 ```
-> **Note**: Remember to assign values to these `env ` variables in order to run locally. Otherwise try the `production` link given above.
+> **Note**: Remember to assign values to these `env` variables in order to run locally. Otherwise try the `production` link given above.
 
 ### Run the application locally
 
