@@ -6,8 +6,7 @@
 
 The live application is deployed and accessible at:
 
-[GrocerEase](https://qp-assessment-goql.onrender.com){:target="_blank"}
-<a href="https://qp-assessment-goql.onrender.com" target="_blank">GrocerEase</a>
+[GrocerEase - Production](https://qp-assessment-goql.onrender.com)
 
 ## Features
 
@@ -94,7 +93,7 @@ http://localhost:${PORT}/api-docs
 
 Production Server:
 
-[API Documentation](https://qp-assessment-goql.onrender.com/api-docs){:target="_blank"}
+[API Documentation](https://qp-assessment-goql.onrender.com/api-docs)
 
 > **Note**:  
 > This service is deployed on Render's free tier plan.  
