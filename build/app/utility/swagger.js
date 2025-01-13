@@ -40,8 +40,8 @@ const swaggerDefinition = {
 const options = {
   swaggerDefinition,
   apis: [
-    path_1.default.join(__dirname, '../app.ts'),
-    path_1.default.join(__dirname, '../modules/*/*.ts'),
+    path_1.default.join(__dirname, '../app.js'),
+    path_1.default.join(__dirname, '../modules/*/*.js'),
   ],
 };
 const swaggerSpec = (0, swagger_jsdoc_1.default)(options);

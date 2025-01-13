@@ -35,8 +35,8 @@ const swaggerDefinition = {
 const options = {
   swaggerDefinition,
   apis: [
-    path.join(__dirname, '../app.ts'),
-    path.join(__dirname, '../modules/*/*.ts'),
+    path.join(__dirname, '../app.js'),
+    path.join(__dirname, '../modules/*/*.js'),
   ],
 };
 
