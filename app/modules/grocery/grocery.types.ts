@@ -3,7 +3,7 @@ import {
   InferAttributes,
   InferCreationAttributes,
   Model,
-} from "sequelize";
+} from 'sequelize';
 
 export interface IGrocery
   extends Model<InferAttributes<IGrocery>, InferCreationAttributes<IGrocery>> {

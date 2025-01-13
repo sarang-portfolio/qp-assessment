@@ -4,7 +4,7 @@ import {
   InferAttributes,
   InferCreationAttributes,
   Model,
-} from "sequelize";
+} from 'sequelize';
 
 export interface IOrderItems
   extends Model<

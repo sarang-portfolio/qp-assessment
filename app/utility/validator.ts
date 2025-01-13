@@ -1,4 +1,4 @@
-import { Schema, ValidationResult } from "joi";
+import { Schema, ValidationResult } from 'joi';
 
 export const validateSchema = <T>(schema: Schema<T>, data: unknown): T => {
   const { error, value }: ValidationResult<T> = schema.validate(data, {
@@ -10,7 +10,7 @@ export const validateSchema = <T>(schema: Schema<T>, data: unknown): T => {
   if (error) {
     const errorMessage = error.details
       .map((detail) => detail.message)
-      .join(", ");
+      .join(', ');
     throw {
       statusCode: 400,
       message: errorMessage,

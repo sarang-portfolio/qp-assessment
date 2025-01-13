@@ -1,5 +1,5 @@
-import pg from "pg";
-import { Dialect, Sequelize } from "sequelize";
+import pg from 'pg';
+import { Dialect, Sequelize } from 'sequelize';
 
 const { DATABASE, HOST, DB_PORT, DB_USER, DB_PASSWORD, DIALECT } = process.env;
 
@@ -10,7 +10,7 @@ export const sequelize = new Sequelize(
   {
     host: HOST,
     port: Number(DB_PORT),
-    dialect: (DIALECT as Dialect) || "postgres",
+    dialect: (DIALECT as Dialect) || 'postgres',
     dialectOptions: {
       ssl: {
         require: true,
@@ -24,5 +24,5 @@ export const sequelize = new Sequelize(
       idle: 10000,
       acquire: 30000,
     },
-  }
+  },
 );

@@ -21,7 +21,7 @@ exports.inventoryModel = utility_1.sequelize.define(database_constants_1.DATABAS
         allowNull: false,
         references: {
             model: grocery_schema_1.groceryModel,
-            key: "id",
+            key: 'id',
         },
     },
 }, {
@@ -29,14 +29,14 @@ exports.inventoryModel = utility_1.sequelize.define(database_constants_1.DATABAS
     paranoid: true,
     indexes: [
         {
-            fields: ["groceryId"],
+            fields: ['groceryId'],
         },
     ],
 });
 grocery_schema_1.groceryModel.hasOne(exports.inventoryModel, {
-    foreignKey: "groceryId",
+    foreignKey: 'groceryId',
 });
 exports.inventoryModel.belongsTo(grocery_schema_1.groceryModel, {
-    foreignKey: "groceryId",
+    foreignKey: 'groceryId',
 });
 //# sourceMappingURL=inventory.schema.js.map

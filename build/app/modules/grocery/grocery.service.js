@@ -29,7 +29,7 @@ const createGrocery = (groceryDto) => __awaiter(void 0, void 0, void 0, function
 const getAllGroceries = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const groceries = yield grocery_repo_1.default.getAll();
-        return groceries.map((grocery) => (Object.assign(Object.assign({}, grocery), { outOfStock: grocery["inventory.quantity"] === 0 })));
+        return groceries.map((grocery) => (Object.assign(Object.assign({}, grocery), { outOfStock: grocery['inventory.quantity'] === 0 })));
     }
     catch (error) {
         throw error;

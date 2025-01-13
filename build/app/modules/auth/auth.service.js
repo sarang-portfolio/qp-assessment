@@ -39,7 +39,7 @@ const signUp = (signUpDto) => __awaiter(void 0, void 0, void 0, function* () {
         }
         let role = signUpDto.role
             ? yield roles_service_1.default.getOneRole({ name: signUpDto.role })
-            : yield roles_service_1.default.getOneRole({ name: "User" });
+            : yield roles_service_1.default.getOneRole({ name: 'User' });
         const { password } = signUpDto, restUserDto = __rest(signUpDto, ["password"]);
         const hashedPassword = yield (0, bcrypt_1.createHash)(password);
         yield user_service_1.default.createUser(Object.assign({ password: hashedPassword, roleId: Number(role === null || role === void 0 ? void 0 : role.id) }, restUserDto));

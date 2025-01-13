@@ -4,7 +4,7 @@ import {
   InferAttributes,
   InferCreationAttributes,
   Model,
-} from "sequelize";
+} from 'sequelize';
 
 export interface IUser
   extends Model<InferAttributes<IUser>, InferCreationAttributes<IUser>> {

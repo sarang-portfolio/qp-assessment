@@ -1,5 +1,5 @@
-import rolesRepo from "./roles.repo";
-import { IRole } from "./roles.types";
+import rolesRepo from './roles.repo';
+import { IRole } from './roles.types';
 
 const getOneRole = async (roleDto: Partial<IRole>): Promise<IRole | null> => {
   try {

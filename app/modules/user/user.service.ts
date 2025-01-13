@@ -1,5 +1,5 @@
-import userRepo from "./user.repo";
-import { CreateUserDto, IUser } from "./user.types";
+import userRepo from './user.repo';
+import { CreateUserDto, IUser } from './user.types';
 
 const createUser = async (userDto: CreateUserDto): Promise<IUser> => {
   try {

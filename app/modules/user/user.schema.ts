@@ -1,8 +1,8 @@
-import { DataTypes, ModelStatic } from "sequelize";
-import { DATABASE_TABLES } from "../../common/constants/database.constants";
-import { sequelize } from "../../utility";
-import { roleModel } from "../roles/roles.schema";
-import { IUser } from "./user.types";
+import { DataTypes, ModelStatic } from 'sequelize';
+import { DATABASE_TABLES } from '../../common/constants/database.constants';
+import { sequelize } from '../../utility';
+import { roleModel } from '../roles/roles.schema';
+import { IUser } from './user.types';
 
 export const userModel: ModelStatic<IUser> = sequelize.define<IUser>(
   DATABASE_TABLES.USER,
@@ -34,8 +34,8 @@ export const userModel: ModelStatic<IUser> = sequelize.define<IUser>(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "roles",
-        key: "id",
+        model: 'roles',
+        key: 'id',
       },
     },
   },
@@ -44,22 +44,22 @@ export const userModel: ModelStatic<IUser> = sequelize.define<IUser>(
     paranoid: true,
     indexes: [
       {
-        fields: ["email"],
+        fields: ['email'],
         unique: true,
       },
       {
-        fields: ["roleId"],
+        fields: ['roleId'],
       },
     ],
-  }
+  },
 );
 
 roleModel.hasMany(userModel, {
-  foreignKey: "roleId",
-  as: "users",
+  foreignKey: 'roleId',
+  as: 'users',
 });
 
 userModel.belongsTo(roleModel, {
-  foreignKey: "roleId",
-  as: "role",
+  foreignKey: 'roleId',
+  as: 'role',
 });

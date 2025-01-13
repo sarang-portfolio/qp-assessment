@@ -1,12 +1,12 @@
-import { GROCERY_CONSTANTS } from "../grocery/grocery.constants";
-import groceryService from "../grocery/grocery.service";
-import { PlaceOrderDto } from "../order/order.types";
-import { INVENTORY_CONSTANTS, QUANTITY_LIMIT } from "./inventory.constants";
-import inventoryRepo from "./inventory.repo";
-import { Action, IInventory, UpdateInventoryDto } from "./inventory.types";
+import { GROCERY_CONSTANTS } from '../grocery/grocery.constants';
+import groceryService from '../grocery/grocery.service';
+import { PlaceOrderDto } from '../order/order.types';
+import { INVENTORY_CONSTANTS, QUANTITY_LIMIT } from './inventory.constants';
+import inventoryRepo from './inventory.repo';
+import { Action, IInventory, UpdateInventoryDto } from './inventory.types';
 
 const getOneinventory = async (
-  inventoryDto: Partial<IInventory>
+  inventoryDto: Partial<IInventory>,
 ): Promise<IInventory | null> => {
   try {
     const inventory = await inventoryRepo.getOne(inventoryDto);
@@ -18,7 +18,7 @@ const getOneinventory = async (
 
 const updateOneinventory = async (
   groceryId: number,
-  inventoryDto: UpdateInventoryDto
+  inventoryDto: UpdateInventoryDto,
 ) => {
   try {
     const groceryItem = await groceryService.getOneGrocery({ id: groceryId });
@@ -57,7 +57,7 @@ const updateOneinventory = async (
 };
 
 const checkInventory = async (
-  items: PlaceOrderDto[]
+  items: PlaceOrderDto[],
 ): Promise<{
   success: boolean;
   details: {

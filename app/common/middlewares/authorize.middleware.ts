@@ -1,16 +1,16 @@
-import { NextFunction, Request, Response } from "express";
-import Joi, { ObjectSchema } from "joi";
-import { sign, verify } from "jsonwebtoken";
-import { IExcludedPaths } from "../../modules/routes/routes.types";
-import { validateSchema } from "../../utility/validator";
-import { BASE_EXCEPTION_CONSTANTS } from "../constants";
-import { IPayload } from "../types";
+import { NextFunction, Request, Response } from 'express';
+import Joi, { ObjectSchema } from 'joi';
+import { sign, verify } from 'jsonwebtoken';
+import { IExcludedPaths } from '../../modules/routes/routes.types';
+import { validateSchema } from '../../utility/validator';
+import { BASE_EXCEPTION_CONSTANTS } from '../constants';
+import { IPayload } from '../types';
 
 export const authorize = (excludedPaths: IExcludedPaths[]) => {
   return async (
     req: Request,
     res: Response,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<void> => {
     try {
       if (
@@ -24,8 +24,8 @@ export const authorize = (excludedPaths: IExcludedPaths[]) => {
       const authorizationSchema: ObjectSchema<{ authorization: string }> =
         Joi.object<{ authorization: string }>({
           authorization: Joi.string().required().messages({
-            "any.required": "Authorization header is required",
-            "string.empty": "Authorization header cannot be empty",
+            'any.required': 'Authorization header is required',
+            'string.empty': 'Authorization header cannot be empty',
           }),
         });
       validateSchema(authorizationSchema, req.headers);
@@ -42,13 +42,13 @@ export const authorize = (excludedPaths: IExcludedPaths[]) => {
 
 export const createToken = (payload: IPayload) => {
   const { JWT_SECRET } = process.env;
-  const token = sign(payload, JWT_SECRET || "");
+  const token = sign(payload, JWT_SECRET || '');
   return token;
 };
 
 export const verifyToken = (token: string) => {
   const { JWT_SECRET } = process.env;
-  const payload = verify(token, JWT_SECRET || "");
+  const payload = verify(token, JWT_SECRET || '');
   return payload;
 };
 

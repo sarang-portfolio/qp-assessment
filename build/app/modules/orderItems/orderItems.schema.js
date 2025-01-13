@@ -26,7 +26,7 @@ exports.orderItemsModel = utility_1.sequelize.define(database_constants_1.DATABA
         allowNull: false,
         references: {
             model: order_schema_1.orderModel,
-            key: "id",
+            key: 'id',
         },
     },
     groceryId: {
@@ -34,7 +34,7 @@ exports.orderItemsModel = utility_1.sequelize.define(database_constants_1.DATABA
         allowNull: false,
         references: {
             model: grocery_schema_1.groceryModel,
-            key: "id",
+            key: 'id',
         },
     },
 }, {
@@ -42,19 +42,19 @@ exports.orderItemsModel = utility_1.sequelize.define(database_constants_1.DATABA
     paranoid: true,
     indexes: [
         {
-            fields: ["orderId"],
+            fields: ['orderId'],
         },
         {
-            fields: ["groceryId"],
+            fields: ['groceryId'],
         },
         {
-            fields: ["orderId", "groceryId"],
+            fields: ['orderId', 'groceryId'],
             unique: true,
         },
     ],
 });
-order_schema_1.orderModel.hasMany(exports.orderItemsModel, { foreignKey: "orderId" });
-exports.orderItemsModel.belongsTo(order_schema_1.orderModel, { foreignKey: "orderId" });
-exports.orderItemsModel.belongsTo(grocery_schema_1.groceryModel, { foreignKey: "groceryId" });
-grocery_schema_1.groceryModel.hasMany(exports.orderItemsModel, { foreignKey: "groceryId" });
+order_schema_1.orderModel.hasMany(exports.orderItemsModel, { foreignKey: 'orderId' });
+exports.orderItemsModel.belongsTo(order_schema_1.orderModel, { foreignKey: 'orderId' });
+exports.orderItemsModel.belongsTo(grocery_schema_1.groceryModel, { foreignKey: 'groceryId' });
+grocery_schema_1.groceryModel.hasMany(exports.orderItemsModel, { foreignKey: 'groceryId' });
 //# sourceMappingURL=orderItems.schema.js.map

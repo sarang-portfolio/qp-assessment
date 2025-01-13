@@ -32,7 +32,7 @@ exports.groceryModel = utility_1.sequelize.define(database_constants_1.DATABASE_
     paranoid: true,
     indexes: [
         {
-            fields: ["name", "deletedAt"],
+            fields: ['name', 'deletedAt'],
             unique: true,
         },
     ],

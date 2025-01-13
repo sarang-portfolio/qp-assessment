@@ -1,9 +1,9 @@
-import { NextFunction, Request, Response, Router } from "express";
-import { ORDER_ROUTES, permit, Roles } from "../../common";
-import { ResponseHandler } from "../../utility";
-import orderService from "./order.service";
-import { PlaceOrderDto } from "./order.types";
-import { validateOrder } from "./order.validations";
+import { NextFunction, Request, Response, Router } from 'express';
+import { ORDER_ROUTES, permit, Roles } from '../../common';
+import { ResponseHandler } from '../../utility';
+import orderService from './order.service';
+import { PlaceOrderDto } from './order.types';
+import { validateOrder } from './order.validations';
 
 export const OrderRouter = Router();
 
@@ -133,5 +133,5 @@ OrderRouter.post(
     } catch (error) {
       next(error);
     }
-  }
+  },
 );

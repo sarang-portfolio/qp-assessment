@@ -1,5 +1,5 @@
-import { BASE_EXCEPTION_CONSTANTS, SUCCESS_MESSAGES } from "../common";
-import { sequelize } from "../utility";
+import { BASE_EXCEPTION_CONSTANTS, SUCCESS_MESSAGES } from '../common';
+import { sequelize } from '../utility';
 
 export const connectToPostgres = async () => {
   try {

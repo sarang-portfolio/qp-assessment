@@ -1,2 +1,2 @@
-export * from "./responseHandler";
-export * from "./sequelize";
+export * from './responseHandler';
+export * from './sequelize';

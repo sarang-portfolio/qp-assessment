@@ -8,24 +8,24 @@ const swagger_jsdoc_1 = __importDefault(require("swagger-jsdoc"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const path_1 = __importDefault(require("path"));
 const swaggerDefinition = {
-    openapi: "3.0.0",
+    openapi: '3.0.0',
     info: {
-        title: "GrocerEase API Docs",
-        version: "1.0.0",
-        description: "This is the API documentation for the GrocerEase application.",
+        title: 'GrocerEase API Docs',
+        version: '1.0.0',
+        description: 'This is the API documentation for the GrocerEase application.',
     },
     servers: [
         {
-            url: "http://localhost:3000",
-            description: "Development server",
+            url: 'http://localhost:3000',
+            description: 'Development server',
         },
     ],
     components: {
         securitySchemes: {
             apiKeyAuth: {
-                type: "apiKey",
-                in: "header",
-                name: "Authorization",
+                type: 'apiKey',
+                in: 'header',
+                name: 'Authorization',
             },
         },
     },
@@ -33,8 +33,8 @@ const swaggerDefinition = {
 const options = {
     swaggerDefinition,
     apis: [
-        path_1.default.join(__dirname, "../app.ts"),
-        path_1.default.join(__dirname, "../modules/*/*.ts"),
+        path_1.default.join(__dirname, '../app.ts'),
+        path_1.default.join(__dirname, '../modules/*/*.ts'),
     ],
 };
 const swaggerSpec = (0, swagger_jsdoc_1.default)(options);

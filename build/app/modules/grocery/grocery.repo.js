@@ -34,11 +34,11 @@ const getAll = () => grocery_schema_1.groceryModel.findAll({
     include: [
         {
             model: inventory_schema_1.inventoryModel,
-            attributes: ["quantity"],
+            attributes: ['quantity'],
         },
     ],
     raw: true,
-    order: [["id", "ASC"]],
+    order: [['id', 'ASC']],
 });
 const getOne = (grocery) => grocery_schema_1.groceryModel.findOne({ where: Object.assign(Object.assign({}, grocery), { deletedAt: null }) });
 const updateOne = (id, grocery) => grocery_schema_1.groceryModel.update(grocery, { where: { id } });

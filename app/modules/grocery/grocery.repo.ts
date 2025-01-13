@@ -1,8 +1,8 @@
-import { sequelize } from "../../utility";
-import { inventoryModel } from "../inventory/inventory.schema";
-import { GROCERY_CONSTANTS } from "./grocery.constants";
-import { groceryModel } from "./grocery.schema";
-import { CreateGroceryDto, IGrocery } from "./grocery.types";
+import { sequelize } from '../../utility';
+import { inventoryModel } from '../inventory/inventory.schema';
+import { GROCERY_CONSTANTS } from './grocery.constants';
+import { groceryModel } from './grocery.schema';
+import { CreateGroceryDto, IGrocery } from './grocery.types';
 
 const create = async (grocery: CreateGroceryDto): Promise<IGrocery> => {
   const transaction = await sequelize.transaction();
@@ -10,14 +10,14 @@ const create = async (grocery: CreateGroceryDto): Promise<IGrocery> => {
   try {
     const newGrocery = await groceryModel.create(
       { ...grocery },
-      { transaction }
+      { transaction },
     );
     await inventoryModel.create(
       {
         groceryId: newGrocery.id,
         quantity: 0, // Default inventory quantity
       },
-      { transaction }
+      { transaction },
     );
     await transaction.commit();
     return newGrocery;
@@ -33,11 +33,11 @@ const getAll = (): Promise<IGrocery[]> =>
     include: [
       {
         model: inventoryModel,
-        attributes: ["quantity"],
+        attributes: ['quantity'],
       },
     ],
     raw: true,
-    order: [["id", "ASC"]],
+    order: [['id', 'ASC']],
   });
 
 const getOne = (grocery: Partial<IGrocery>): Promise<IGrocery | null> =>
@@ -45,7 +45,7 @@ const getOne = (grocery: Partial<IGrocery>): Promise<IGrocery | null> =>
 
 const updateOne = (
   id: number,
-  grocery: Partial<IGrocery>
+  grocery: Partial<IGrocery>,
 ): Promise<[affectedCount: number]> =>
   groceryModel.update(grocery, { where: { id } });
 

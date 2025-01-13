@@ -1,7 +1,7 @@
-import { DataTypes, ModelStatic } from "sequelize";
-import { DATABASE_TABLES } from "../../common/constants/database.constants";
-import { sequelize } from "../../utility";
-import { IGrocery } from "./grocery.types";
+import { DataTypes, ModelStatic } from 'sequelize';
+import { DATABASE_TABLES } from '../../common/constants/database.constants';
+import { sequelize } from '../../utility';
+import { IGrocery } from './grocery.types';
 
 export const groceryModel: ModelStatic<IGrocery> = sequelize.define<IGrocery>(
   DATABASE_TABLES.GROCERY,
@@ -34,9 +34,9 @@ export const groceryModel: ModelStatic<IGrocery> = sequelize.define<IGrocery>(
     paranoid: true,
     indexes: [
       {
-        fields: ["name", "deletedAt"],
+        fields: ['name', 'deletedAt'],
         unique: true,
       },
     ],
-  }
+  },
 );

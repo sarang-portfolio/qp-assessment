@@ -27,8 +27,8 @@ const authorize = (excludedPaths) => {
             }
             const authorizationSchema = joi_1.default.object({
                 authorization: joi_1.default.string().required().messages({
-                    "any.required": "Authorization header is required",
-                    "string.empty": "Authorization header cannot be empty",
+                    'any.required': 'Authorization header is required',
+                    'string.empty': 'Authorization header cannot be empty',
                 }),
             });
             (0, validator_1.validateSchema)(authorizationSchema, req.headers);
@@ -45,13 +45,13 @@ const authorize = (excludedPaths) => {
 exports.authorize = authorize;
 const createToken = (payload) => {
     const { JWT_SECRET } = process.env;
-    const token = (0, jsonwebtoken_1.sign)(payload, JWT_SECRET || "");
+    const token = (0, jsonwebtoken_1.sign)(payload, JWT_SECRET || '');
     return token;
 };
 exports.createToken = createToken;
 const verifyToken = (token) => {
     const { JWT_SECRET } = process.env;
-    const payload = (0, jsonwebtoken_1.verify)(token, JWT_SECRET || "");
+    const payload = (0, jsonwebtoken_1.verify)(token, JWT_SECRET || '');
     return payload;
 };
 exports.verifyToken = verifyToken;

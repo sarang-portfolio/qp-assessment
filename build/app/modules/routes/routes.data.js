@@ -18,9 +18,9 @@ exports.routes = [
     new routes_types_1.Route(PUBLIC_BASE_ORDER, order_routes_1.OrderRouter),
 ];
 exports.excludedPaths = [
-    { path: "/auth/signUp", method: "POST" },
-    { path: "/auth/login", method: "POST" },
-    { path: "/api-docs", method: "GET" },
-    { path: "/healthCheck", method: "GET" },
+    { path: '/auth/signUp', method: 'POST' },
+    { path: '/auth/login', method: 'POST' },
+    { path: '/api-docs', method: 'GET' },
+    { path: '/healthCheck', method: 'GET' },
 ];
 //# sourceMappingURL=routes.data.js.map

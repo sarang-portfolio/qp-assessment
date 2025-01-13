@@ -1,1 +1,1 @@
-export * from "./authorize.types";
+export * from './authorize.types';

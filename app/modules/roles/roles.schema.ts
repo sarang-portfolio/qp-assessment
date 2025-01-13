@@ -1,7 +1,7 @@
-import { DataTypes, ModelStatic } from "sequelize";
-import { DATABASE_TABLES } from "../../common/constants/database.constants";
-import { sequelize } from "../../utility";
-import { IRole } from "./roles.types";
+import { DataTypes, ModelStatic } from 'sequelize';
+import { DATABASE_TABLES } from '../../common/constants/database.constants';
+import { sequelize } from '../../utility';
+import { IRole } from './roles.types';
 
 export const roleModel: ModelStatic<IRole> = sequelize.define<IRole>(
   DATABASE_TABLES.ROLE,
@@ -21,5 +21,5 @@ export const roleModel: ModelStatic<IRole> = sequelize.define<IRole>(
   {
     timestamps: true,
     paranoid: true,
-  }
+  },
 );

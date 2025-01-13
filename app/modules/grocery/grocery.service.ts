@@ -1,11 +1,11 @@
-import { MessageHandler } from "../../utility";
-import { PlaceOrderDto } from "../order/order.types";
-import { GROCERY_CONSTANTS } from "./grocery.constants";
-import groceryRepo from "./grocery.repo";
-import { CreateGroceryDto, GetAllGroceries, IGrocery } from "./grocery.types";
+import { MessageHandler } from '../../utility';
+import { PlaceOrderDto } from '../order/order.types';
+import { GROCERY_CONSTANTS } from './grocery.constants';
+import groceryRepo from './grocery.repo';
+import { CreateGroceryDto, GetAllGroceries, IGrocery } from './grocery.types';
 
 const createGrocery = async (
-  groceryDto: CreateGroceryDto
+  groceryDto: CreateGroceryDto,
 ): Promise<MessageHandler> => {
   try {
     const existingGrocery = await getOneGrocery({ name: groceryDto.name });
@@ -22,7 +22,7 @@ const getAllGroceries = async (): Promise<GetAllGroceries[]> => {
     const groceries = await groceryRepo.getAll();
     return groceries.map((grocery: any) => ({
       ...grocery,
-      outOfStock: grocery["inventory.quantity"] === 0,
+      outOfStock: grocery['inventory.quantity'] === 0,
     }));
   } catch (error) {
     throw error;
@@ -30,7 +30,7 @@ const getAllGroceries = async (): Promise<GetAllGroceries[]> => {
 };
 
 const getOneGrocery = async (
-  groceryDto: Partial<IGrocery>
+  groceryDto: Partial<IGrocery>,
 ): Promise<IGrocery | null> => {
   try {
     const grocery: IGrocery | null = await groceryRepo.getOne(groceryDto);
@@ -42,7 +42,7 @@ const getOneGrocery = async (
 
 const updateOneGrocery = async (
   id: number,
-  groceryDto: Partial<IGrocery>
+  groceryDto: Partial<IGrocery>,
 ): Promise<MessageHandler> => {
   try {
     const isUpdated = await groceryRepo.updateOne(id, groceryDto);
@@ -65,7 +65,7 @@ const deleteOneGrocery = async (id: number): Promise<MessageHandler> => {
 };
 
 const calculateTotalAmount = async (
-  items: PlaceOrderDto[]
+  items: PlaceOrderDto[],
 ): Promise<number> => {
   try {
     let total = 0;

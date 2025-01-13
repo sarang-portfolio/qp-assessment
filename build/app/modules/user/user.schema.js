@@ -33,8 +33,8 @@ exports.userModel = utility_1.sequelize.define(database_constants_1.DATABASE_TAB
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: "roles",
-            key: "id",
+            model: 'roles',
+            key: 'id',
         },
     },
 }, {
@@ -42,20 +42,20 @@ exports.userModel = utility_1.sequelize.define(database_constants_1.DATABASE_TAB
     paranoid: true,
     indexes: [
         {
-            fields: ["email"],
+            fields: ['email'],
             unique: true,
         },
         {
-            fields: ["roleId"],
+            fields: ['roleId'],
         },
     ],
 });
 roles_schema_1.roleModel.hasMany(exports.userModel, {
-    foreignKey: "roleId",
-    as: "users",
+    foreignKey: 'roleId',
+    as: 'users',
 });
 exports.userModel.belongsTo(roles_schema_1.roleModel, {
-    foreignKey: "roleId",
-    as: "role",
+    foreignKey: 'roleId',
+    as: 'role',
 });
 //# sourceMappingURL=user.schema.js.map

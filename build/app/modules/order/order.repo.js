@@ -26,7 +26,7 @@ const create = (userId, items, totalAmount) => __awaiter(void 0, void 0, void 0,
             where: {
                 id: items.map((item) => item.groceryId),
             },
-            attributes: ["id", "price"],
+            attributes: ['id', 'price'],
         });
         const groceryMap = groceries.reduce((acc, grocery) => {
             acc[grocery.id] = grocery.price;

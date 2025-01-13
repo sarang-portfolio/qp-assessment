@@ -1,11 +1,11 @@
-import { NextFunction, Request, Response, Router } from "express";
-import { INVENTORY_ROUTES, permit, Roles } from "../../common";
-import { ResponseHandler } from "../../utility";
-import inventoryService from "./inventory.service";
+import { NextFunction, Request, Response, Router } from 'express';
+import { INVENTORY_ROUTES, permit, Roles } from '../../common';
+import { ResponseHandler } from '../../utility';
+import inventoryService from './inventory.service';
 import {
   validateUpdateInventoryBody,
   validateUpdateInventoryParams,
-} from "./inventory.validations";
+} from './inventory.validations';
 
 export const InventoryRouter = Router();
 
@@ -123,11 +123,11 @@ InventoryRouter.put(
       const inventoryDto = req.body;
       const response = await inventoryService.updateOneinventory(
         Number(groceryId),
-        inventoryDto
+        inventoryDto,
       );
       res.send(new ResponseHandler(response));
     } catch (error) {
       next(error);
     }
-  }
+  },
 );

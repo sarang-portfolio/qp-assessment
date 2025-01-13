@@ -1,8 +1,8 @@
-import { DataTypes, ModelStatic } from "sequelize";
-import { DATABASE_TABLES } from "../../common/constants/database.constants";
-import { sequelize } from "../../utility";
-import { groceryModel } from "../grocery/grocery.schema";
-import { IInventory } from "./inventory.types";
+import { DataTypes, ModelStatic } from 'sequelize';
+import { DATABASE_TABLES } from '../../common/constants/database.constants';
+import { sequelize } from '../../utility';
+import { groceryModel } from '../grocery/grocery.schema';
+import { IInventory } from './inventory.types';
 
 export const inventoryModel: ModelStatic<IInventory> =
   sequelize.define<IInventory>(
@@ -23,7 +23,7 @@ export const inventoryModel: ModelStatic<IInventory> =
         allowNull: false,
         references: {
           model: groceryModel,
-          key: "id",
+          key: 'id',
         },
       },
     },
@@ -32,16 +32,16 @@ export const inventoryModel: ModelStatic<IInventory> =
       paranoid: true,
       indexes: [
         {
-          fields: ["groceryId"],
+          fields: ['groceryId'],
         },
       ],
-    }
+    },
   );
 
 groceryModel.hasOne(inventoryModel, {
-  foreignKey: "groceryId",
+  foreignKey: 'groceryId',
 });
 
 inventoryModel.belongsTo(groceryModel, {
-  foreignKey: "groceryId",
+  foreignKey: 'groceryId',
 });

@@ -10,7 +10,7 @@ const validateSchema = (schema, data) => {
     if (error) {
         const errorMessage = error.details
             .map((detail) => detail.message)
-            .join(", ");
+            .join(', ');
         throw {
             statusCode: 400,
             message: errorMessage,

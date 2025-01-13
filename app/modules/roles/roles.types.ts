@@ -3,7 +3,7 @@ import {
   InferAttributes,
   InferCreationAttributes,
   Model,
-} from "sequelize";
+} from 'sequelize';
 
 export interface IRole
   extends Model<InferAttributes<IRole>, InferCreationAttributes<IRole>> {

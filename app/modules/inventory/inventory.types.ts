@@ -4,7 +4,7 @@ import {
   InferAttributes,
   InferCreationAttributes,
   Model,
-} from "sequelize";
+} from 'sequelize';
 
 export interface IInventory
   extends Model<
@@ -25,7 +25,7 @@ export interface UpdateInventoryDto {
 }
 
 export enum Action {
-  increment = "increment",
-  decrement = "decrement",
-  set = "set",
+  increment = 'increment',
+  decrement = 'decrement',
+  set = 'set',
 }

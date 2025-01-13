@@ -1,5 +1,5 @@
-import { userModel } from "./user.schema";
-import { CreateUserDto, IUser } from "./user.types";
+import { userModel } from './user.schema';
+import { CreateUserDto, IUser } from './user.types';
 
 const create = (user: CreateUserDto): Promise<IUser> =>
   userModel.create({ ...user });
@@ -11,7 +11,7 @@ const getOne = (user: Partial<IUser>): Promise<IUser | null> =>
 
 const updateOne = (
   id: number,
-  user: Partial<IUser>
+  user: Partial<IUser>,
 ): Promise<[affectedCount: number]> =>
   userModel.update(user, { where: { id } });
 

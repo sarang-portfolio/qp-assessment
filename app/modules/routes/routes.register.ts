@@ -1,9 +1,9 @@
-import cors from "cors";
-import { Application, json, NextFunction, Request, Response } from "express";
-import helmet from "helmet";
-import { authorize, ERROR_CODES } from "../../common";
-import { ResponseHandler } from "../../utility";
-import { excludedPaths, routes } from "./routes.data";
+import cors from 'cors';
+import { Application, json, NextFunction, Request, Response } from 'express';
+import helmet from 'helmet';
+import { authorize, ERROR_CODES } from '../../common';
+import { ResponseHandler } from '../../utility';
+import { excludedPaths, routes } from './routes.data';
 
 export const registerRoutes = (app: Application) => {
   app.use(helmet());

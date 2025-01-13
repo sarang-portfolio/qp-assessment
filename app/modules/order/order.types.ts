@@ -4,7 +4,7 @@ import {
   InferAttributes,
   InferCreationAttributes,
   Model,
-} from "sequelize";
+} from 'sequelize';
 
 export interface IOrder
   extends Model<InferAttributes<IOrder>, InferCreationAttributes<IOrder>> {
@@ -18,9 +18,9 @@ export interface IOrder
 }
 
 export enum Status {
-  pending = "pending",
-  completed = "completed",
-  cancelled = "cancelled",
+  pending = 'pending',
+  completed = 'completed',
+  cancelled = 'cancelled',
 }
 
 export interface CreateOrderDto {

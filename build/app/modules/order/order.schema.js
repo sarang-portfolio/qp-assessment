@@ -27,7 +27,7 @@ exports.orderModel = utility_1.sequelize.define(database_constants_1.DATABASE_TA
         allowNull: false,
         references: {
             model: user_schema_1.userModel,
-            key: "id",
+            key: 'id',
         },
     },
 }, {
@@ -35,16 +35,16 @@ exports.orderModel = utility_1.sequelize.define(database_constants_1.DATABASE_TA
     paranoid: true,
     indexes: [
         {
-            fields: ["userId"],
+            fields: ['userId'],
         },
         {
-            fields: ["status"],
+            fields: ['status'],
         },
         {
-            fields: ["userId", "status"],
+            fields: ['userId', 'status'],
         },
     ],
 });
-user_schema_1.userModel.hasMany(exports.orderModel, { foreignKey: "userId" });
-exports.orderModel.belongsTo(user_schema_1.userModel, { foreignKey: "userId" });
+user_schema_1.userModel.hasMany(exports.orderModel, { foreignKey: 'userId' });
+exports.orderModel.belongsTo(user_schema_1.userModel, { foreignKey: 'userId' });
 //# sourceMappingURL=order.schema.js.map

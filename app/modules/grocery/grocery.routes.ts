@@ -1,14 +1,14 @@
-import { NextFunction, Request, Response, Router } from "express";
-import { GROCERY_ROUTES, permit, Roles } from "../../common";
-import { MessageHandler, ResponseHandler } from "../../utility";
-import groceryService from "./grocery.service";
-import { CreateGroceryDto, GetAllGroceries, IGrocery } from "./grocery.types";
+import { NextFunction, Request, Response, Router } from 'express';
+import { GROCERY_ROUTES, permit, Roles } from '../../common';
+import { MessageHandler, ResponseHandler } from '../../utility';
+import groceryService from './grocery.service';
+import { CreateGroceryDto, GetAllGroceries, IGrocery } from './grocery.types';
 import {
   validateDeleteGrocery,
   validateGrocery,
   validateUpdateGroceryBody,
   validateUpdateGroceryParams,
-} from "./grocery.validations";
+} from './grocery.validations';
 
 export const GroceryRouter = Router();
 
@@ -115,14 +115,13 @@ GroceryRouter.post(
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const groceryDto = req.body as CreateGroceryDto;
-      const response: MessageHandler = await groceryService.createGrocery(
-        groceryDto
-      );
+      const response: MessageHandler =
+        await groceryService.createGrocery(groceryDto);
       res.send(new ResponseHandler(response));
     } catch (error) {
       next(error);
     }
-  }
+  },
 );
 
 /**
@@ -183,7 +182,7 @@ GroceryRouter.get(
     } catch (error) {
       next(error);
     }
-  }
+  },
 );
 
 /**
@@ -314,13 +313,13 @@ GroceryRouter.put(
       const groceryDto = req.body as Partial<IGrocery>;
       const response: MessageHandler = await groceryService.updateOneGrocery(
         groceryId,
-        groceryDto
+        groceryDto,
       );
       res.send(new ResponseHandler(response));
     } catch (error) {
       next(error);
     }
-  }
+  },
 );
 
 /**
@@ -431,12 +430,11 @@ GroceryRouter.delete(
   async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const groceryId = Number(req.params.id);
-      const response: MessageHandler = await groceryService.deleteOneGrocery(
-        groceryId
-      );
+      const response: MessageHandler =
+        await groceryService.deleteOneGrocery(groceryId);
       res.send(new ResponseHandler(response));
     } catch (error) {
       next(error);
     }
-  }
+  },
 );

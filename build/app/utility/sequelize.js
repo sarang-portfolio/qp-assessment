@@ -10,7 +10,7 @@ const { DATABASE, HOST, DB_PORT, DB_USER, DB_PASSWORD, DIALECT } = process.env;
 exports.sequelize = new sequelize_1.Sequelize(DATABASE, DB_USER, DB_PASSWORD, {
     host: HOST,
     port: Number(DB_PORT),
-    dialect: DIALECT || "postgres",
+    dialect: DIALECT || 'postgres',
     dialectOptions: {
         ssl: {
             require: true,

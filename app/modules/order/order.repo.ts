@@ -1,13 +1,13 @@
-import { sequelize } from "../../utility";
-import { groceryModel } from "../grocery/grocery.schema";
-import { orderItemsModel } from "../orderItems/orderItems.schema";
-import { orderModel } from "./order.schema";
-import { IOrder, PlaceOrderDto, Status } from "./order.types";
+import { sequelize } from '../../utility';
+import { groceryModel } from '../grocery/grocery.schema';
+import { orderItemsModel } from '../orderItems/orderItems.schema';
+import { orderModel } from './order.schema';
+import { IOrder, PlaceOrderDto, Status } from './order.types';
 
 const create = async (
   userId: number,
   items: PlaceOrderDto[],
-  totalAmount: number
+  totalAmount: number,
 ): Promise<IOrder> => {
   const transaction = await sequelize.transaction();
   try {
@@ -17,20 +17,23 @@ const create = async (
         totalAmount,
         status: Status.pending,
       },
-      { transaction }
+      { transaction },
     );
 
     const groceries = await groceryModel.findAll({
       where: {
         id: items.map((item) => item.groceryId),
       },
-      attributes: ["id", "price"],
+      attributes: ['id', 'price'],
     });
 
-    const groceryMap = groceries.reduce((acc, grocery) => {
-      acc[grocery.id] = grocery.price;
-      return acc;
-    }, {} as Record<number, number>);
+    const groceryMap = groceries.reduce(
+      (acc, grocery) => {
+        acc[grocery.id] = grocery.price;
+        return acc;
+      },
+      {} as Record<number, number>,
+    );
 
     const orderItems = items.map((item) => ({
       orderId: newOrder.id,
@@ -55,8 +58,8 @@ const create = async (
             groceryId: update.groceryId,
           },
           transaction,
-        }
-      )
+        },
+      ),
     );
 
     await Promise.all(updatePromises);

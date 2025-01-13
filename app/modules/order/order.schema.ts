@@ -1,8 +1,8 @@
-import { DataTypes, ModelStatic } from "sequelize";
-import { DATABASE_TABLES } from "../../common/constants/database.constants";
-import { sequelize } from "../../utility";
-import { userModel } from "../user/user.schema";
-import { IOrder, Status } from "./order.types";
+import { DataTypes, ModelStatic } from 'sequelize';
+import { DATABASE_TABLES } from '../../common/constants/database.constants';
+import { sequelize } from '../../utility';
+import { userModel } from '../user/user.schema';
+import { IOrder, Status } from './order.types';
 
 export const orderModel: ModelStatic<IOrder> = sequelize.define<IOrder>(
   DATABASE_TABLES.ORDER,
@@ -27,7 +27,7 @@ export const orderModel: ModelStatic<IOrder> = sequelize.define<IOrder>(
       allowNull: false,
       references: {
         model: userModel,
-        key: "id",
+        key: 'id',
       },
     },
   },
@@ -36,17 +36,17 @@ export const orderModel: ModelStatic<IOrder> = sequelize.define<IOrder>(
     paranoid: true,
     indexes: [
       {
-        fields: ["userId"],
+        fields: ['userId'],
       },
       {
-        fields: ["status"],
+        fields: ['status'],
       },
       {
-        fields: ["userId", "status"],
+        fields: ['userId', 'status'],
       },
     ],
-  }
+  },
 );
 
-userModel.hasMany(orderModel, { foreignKey: "userId" });
-orderModel.belongsTo(userModel, { foreignKey: "userId" });
+userModel.hasMany(orderModel, { foreignKey: 'userId' });
+orderModel.belongsTo(userModel, { foreignKey: 'userId' });

@@ -1,9 +1,9 @@
-import { NextFunction, Request, Response, Router } from "express";
-import { AUTH_ROUTES } from "../../common";
-import { MessageHandler, ResponseHandler } from "../../utility";
-import authService from "./auth.service";
-import { LoginDto, SignUpDto } from "./auth.types";
-import { validateLogin, validateSignUp } from "./auth.validations";
+import { NextFunction, Request, Response, Router } from 'express';
+import { AUTH_ROUTES } from '../../common';
+import { MessageHandler, ResponseHandler } from '../../utility';
+import authService from './auth.service';
+import { LoginDto, SignUpDto } from './auth.types';
+import { validateLogin, validateSignUp } from './auth.validations';
 
 export const AuthRouter = Router();
 
@@ -96,7 +96,7 @@ AuthRouter.post(
     } catch (error) {
       next(error);
     }
-  }
+  },
 );
 
 /**
@@ -211,5 +211,5 @@ AuthRouter.post(
     } catch (error) {
       next(error);
     }
-  }
+  },
 );

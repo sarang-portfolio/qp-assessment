@@ -1,9 +1,9 @@
-import { DataTypes, ModelStatic } from "sequelize";
-import { DATABASE_TABLES } from "../../common/constants/database.constants";
-import { sequelize } from "../../utility";
-import { groceryModel } from "../grocery/grocery.schema";
-import { orderModel } from "../order/order.schema";
-import { IOrderItems } from "./orderItems.types";
+import { DataTypes, ModelStatic } from 'sequelize';
+import { DATABASE_TABLES } from '../../common/constants/database.constants';
+import { sequelize } from '../../utility';
+import { groceryModel } from '../grocery/grocery.schema';
+import { orderModel } from '../order/order.schema';
+import { IOrderItems } from './orderItems.types';
 
 export const orderItemsModel: ModelStatic<IOrderItems> =
   sequelize.define<IOrderItems>(
@@ -28,7 +28,7 @@ export const orderItemsModel: ModelStatic<IOrderItems> =
         allowNull: false,
         references: {
           model: orderModel,
-          key: "id",
+          key: 'id',
         },
       },
       groceryId: {
@@ -36,7 +36,7 @@ export const orderItemsModel: ModelStatic<IOrderItems> =
         allowNull: false,
         references: {
           model: groceryModel,
-          key: "id",
+          key: 'id',
         },
       },
     },
@@ -45,21 +45,21 @@ export const orderItemsModel: ModelStatic<IOrderItems> =
       paranoid: true,
       indexes: [
         {
-          fields: ["orderId"],
+          fields: ['orderId'],
         },
         {
-          fields: ["groceryId"],
+          fields: ['groceryId'],
         },
         {
-          fields: ["orderId", "groceryId"],
+          fields: ['orderId', 'groceryId'],
           unique: true,
         },
       ],
-    }
+    },
   );
 
-orderModel.hasMany(orderItemsModel, { foreignKey: "orderId" });
-orderItemsModel.belongsTo(orderModel, { foreignKey: "orderId" });
+orderModel.hasMany(orderItemsModel, { foreignKey: 'orderId' });
+orderItemsModel.belongsTo(orderModel, { foreignKey: 'orderId' });
 
-orderItemsModel.belongsTo(groceryModel, { foreignKey: "groceryId" });
-groceryModel.hasMany(orderItemsModel, { foreignKey: "groceryId" });
+orderItemsModel.belongsTo(groceryModel, { foreignKey: 'groceryId' });
+groceryModel.hasMany(orderItemsModel, { foreignKey: 'groceryId' });

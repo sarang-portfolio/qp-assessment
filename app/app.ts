@@ -1,9 +1,9 @@
-import express, { NextFunction, Request, Response } from "express";
-import { HEALTH_CHECK_ROUTES, SUCCESS_CODES, SUCCESS_MESSAGES } from "./common";
-import { connectToPostgres } from "./connections";
-import { registerRoutes } from "./modules/routes/routes.register";
-import { ResponseHandler } from "./utility";
-import { setupSwagger } from "./utility/swagger";
+import express, { NextFunction, Request, Response } from 'express';
+import { HEALTH_CHECK_ROUTES, SUCCESS_CODES, SUCCESS_MESSAGES } from './common';
+import { connectToPostgres } from './connections';
+import { registerRoutes } from './modules/routes/routes.register';
+import { ResponseHandler } from './utility';
+import { setupSwagger } from './utility/swagger';
 
 const startServer = async () => {
   try {
@@ -50,9 +50,9 @@ const startServer = async () => {
           new ResponseHandler({
             statusCode: SUCCESS_CODES.SUCCESS,
             message: SUCCESS_MESSAGES.HEALTH_CHECK_SUCCESS,
-          })
+          }),
         );
-      }
+      },
     );
 
     const { PORT } = process.env;
