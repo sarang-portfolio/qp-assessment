@@ -6,7 +6,7 @@
 
 The live application is deployed and accessible at:
 
-[GrocerEase](https://qp-assessment-goql.onrender.com)
+[GrocerEase - https://qp-assessment-goql.onrender.com](https://qp-assessment-goql.onrender.com)
 
 ## Features
 
@@ -37,9 +37,11 @@ The live application is deployed and accessible at:
 ### Clone the repository
 
 ```bash
-[git clone https://github.com/sarang-portfolio/qp-assessment.git](https://github.com/sarang-portfolio/qp-assessment.git)
-cd ${project-folder}
+git clone https://github.com/sarang-portfolio/qp-assessment.git
+```
 
+```bash
+cd project-folder
 ```
 
 ```bash
@@ -72,6 +74,7 @@ JWT_EXPIRES_IN=
 #PROD_SERVER_CONFIG
 PROD_HOST_URL=
 ```
+> **Note**: Remember to assign values to these `env ` variables in order to run locally. Otherwise try the `production` link given above.
 
 ### Run the application locally
 
