@@ -7,6 +7,7 @@
 The live application is deployed and accessible at:
 
 [GrocerEase](https://qp-assessment-goql.onrender.com){:target="_blank"}
+<a href="https://qp-assessment-goql.onrender.com" target="_blank">GrocerEase</a>
 
 ## Features
 
