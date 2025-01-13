@@ -1,49 +1,23 @@
-'use strict';
-var __awaiter =
-  (this && this.__awaiter) ||
-  function (thisArg, _arguments, P, generator) {
-    function adopt(value) {
-      return value instanceof P
-        ? value
-        : new P(function (resolve) {
-            resolve(value);
-          });
-    }
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
-      function fulfilled(value) {
-        try {
-          step(generator.next(value));
-        } catch (e) {
-          reject(e);
-        }
-      }
-      function rejected(value) {
-        try {
-          step(generator['throw'](value));
-        } catch (e) {
-          reject(e);
-        }
-      }
-      function step(result) {
-        result.done
-          ? resolve(result.value)
-          : adopt(result.value).then(fulfilled, rejected);
-      }
-      step((generator = generator.apply(thisArg, _arguments || [])).next());
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-  };
-var __importDefault =
-  (this && this.__importDefault) ||
-  function (mod) {
-    return mod && mod.__esModule ? mod : { default: mod };
-  };
-Object.defineProperty(exports, '__esModule', { value: true });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.InventoryRouter = void 0;
-const express_1 = require('express');
-const common_1 = require('../../common');
-const utility_1 = require('../../utility');
-const inventory_service_1 = __importDefault(require('./inventory.service'));
-const inventory_validations_1 = require('./inventory.validations');
+const express_1 = require("express");
+const common_1 = require("../../common");
+const utility_1 = require("../../utility");
+const inventory_service_1 = __importDefault(require("./inventory.service"));
+const inventory_validations_1 = require("./inventory.validations");
 exports.InventoryRouter = (0, express_1.Router)();
 /**
  * @swagger
@@ -146,24 +120,15 @@ exports.InventoryRouter = (0, express_1.Router)();
  *                       type: string
  *                       example: GROCERY ITEM NOT FOUND
  */
-exports.InventoryRouter.put(
-  common_1.INVENTORY_ROUTES.PRIVATE_UPDATE_INVENTORY,
-  inventory_validations_1.validateUpdateInventoryParams,
-  inventory_validations_1.validateUpdateInventoryBody,
-  (0, common_1.permit)([common_1.Roles.Admin]),
-  (req, res, next) =>
-    __awaiter(void 0, void 0, void 0, function* () {
-      try {
+exports.InventoryRouter.put(common_1.INVENTORY_ROUTES.PRIVATE_UPDATE_INVENTORY, inventory_validations_1.validateUpdateInventoryParams, inventory_validations_1.validateUpdateInventoryBody, (0, common_1.permit)([common_1.Roles.Admin]), (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
         const { groceryId } = req.params;
         const inventoryDto = req.body;
-        const response = yield inventory_service_1.default.updateOneinventory(
-          Number(groceryId),
-          inventoryDto,
-        );
+        const response = yield inventory_service_1.default.updateOneinventory(Number(groceryId), inventoryDto);
         res.send(new utility_1.ResponseHandler(response));
-      } catch (error) {
+    }
+    catch (error) {
         next(error);
-      }
-    }),
-);
+    }
+}));
 //# sourceMappingURL=inventory.routes.js.map
