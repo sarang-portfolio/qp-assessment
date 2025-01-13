@@ -13,11 +13,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: 'http://localhost:3000',
-      description: 'Development server',
-    },
-    {
-      url: 'https://qp-assessment-goql.onrender.com',
+      url: process.env.PROD_HOST_URL,
       description: 'Production server',
     },
   ],
