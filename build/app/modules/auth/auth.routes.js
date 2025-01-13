@@ -1,23 +1,49 @@
-"use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+'use strict';
+var __awaiter =
+  (this && this.__awaiter) ||
+  function (thisArg, _arguments, P, generator) {
+    function adopt(value) {
+      return value instanceof P
+        ? value
+        : new P(function (resolve) {
+            resolve(value);
+          });
+    }
     return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      function fulfilled(value) {
+        try {
+          step(generator.next(value));
+        } catch (e) {
+          reject(e);
+        }
+      }
+      function rejected(value) {
+        try {
+          step(generator['throw'](value));
+        } catch (e) {
+          reject(e);
+        }
+      }
+      function step(result) {
+        result.done
+          ? resolve(result.value)
+          : adopt(result.value).then(fulfilled, rejected);
+      }
+      step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
+  };
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod };
+  };
+Object.defineProperty(exports, '__esModule', { value: true });
 exports.AuthRouter = void 0;
-const express_1 = require("express");
-const common_1 = require("../../common");
-const utility_1 = require("../../utility");
-const auth_service_1 = __importDefault(require("./auth.service"));
-const auth_validations_1 = require("./auth.validations");
+const express_1 = require('express');
+const common_1 = require('../../common');
+const utility_1 = require('../../utility');
+const auth_service_1 = __importDefault(require('./auth.service'));
+const auth_validations_1 = require('./auth.validations');
 exports.AuthRouter = (0, express_1.Router)();
 const { PRIVATE_LOGIN, PRIVATE_SIGNUP } = common_1.AUTH_ROUTES;
 /**
@@ -95,16 +121,22 @@ const { PRIVATE_LOGIN, PRIVATE_SIGNUP } = common_1.AUTH_ROUTES;
  *                     statusCode: 400
  *                     message: USER ALREADY EXISTS
  */
-exports.AuthRouter.post(PRIVATE_SIGNUP, auth_validations_1.validateSignUp, (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
+exports.AuthRouter.post(
+  PRIVATE_SIGNUP,
+  auth_validations_1.validateSignUp,
+  (req, res, next) =>
+    __awaiter(void 0, void 0, void 0, function* () {
+      try {
         const signUpDto = req.body;
         const response = yield auth_service_1.default.signUp(signUpDto);
-        res.status(response.statusCode).send(new utility_1.ResponseHandler(response));
-    }
-    catch (error) {
+        res
+          .status(response.statusCode)
+          .send(new utility_1.ResponseHandler(response));
+      } catch (error) {
         next(error);
-    }
-}));
+      }
+    }),
+);
 /**
  * @swagger
  * /auth/login:
@@ -205,14 +237,18 @@ exports.AuthRouter.post(PRIVATE_SIGNUP, auth_validations_1.validateSignUp, (req,
  *                       type: string
  *                       example: USER NOT FOUND
  */
-exports.AuthRouter.post(PRIVATE_LOGIN, auth_validations_1.validateLogin, (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
+exports.AuthRouter.post(
+  PRIVATE_LOGIN,
+  auth_validations_1.validateLogin,
+  (req, res, next) =>
+    __awaiter(void 0, void 0, void 0, function* () {
+      try {
         const credentials = req.body;
         const response = yield auth_service_1.default.login(credentials);
         res.send(new utility_1.ResponseHandler(response));
-    }
-    catch (error) {
+      } catch (error) {
         next(error);
-    }
-}));
+      }
+    }),
+);
 //# sourceMappingURL=auth.routes.js.map
